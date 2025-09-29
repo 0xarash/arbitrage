@@ -70,7 +70,7 @@ go build -o arbitrage
 
 ## Configuration
 
-The project uses a simple config file (`config.toml`). Below is an example if such config file.
+The project uses a simple config file (`config.toml`). Below is an example of such config file.
 
 ```toml
 [arbitrage]
