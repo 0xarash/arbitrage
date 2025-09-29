@@ -2,9 +2,11 @@
 
 ## Description
 
-This is an arbitrage project where currently triangular arbitrage is implemented.  The Bellman-Ford algorithm is used to detect tradeable cycles. Basically we are going to solve the following problem.
+This is a simple implementation of arbitrage project where currently triangular arbitrage is implemented.  The Bellman-Ford algorithm is used to detect tradeable cycles. Right now, this is not a complete trading bot — there’s no order execution or risk management yet — but it’s a clean starting point for anyone who wants to step foot into implementing such project with Go language.
 
 ### Problem
+
+Basically we are going to solve the following problem.
 
 If there are three pairs and exchange rates like this:
 
@@ -35,7 +37,7 @@ This condition corresponds to detecting negative cycles in the Bellman-Ford algo
 ## Limitations
 
 * Only supports **Binance** exchange  
-* Based on the REST API (very slow compared to WebSockets)  
+* Based on the REST API (slow compared to WebSockets)  
 * No order execution / trading support  
 * No risk management
 
