@@ -51,7 +51,7 @@ This condition corresponds to detecting negative cycles in the Bellman-Ford algo
 Clone the repository:
 
 ```bash
-git clone https://github.com/user/arbitrage.git
+git clone https://github.com/0xarash/arbitrage.git
 cd arbitrage
 ```
 
