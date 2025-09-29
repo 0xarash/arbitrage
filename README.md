@@ -10,29 +10,29 @@ Basically we are going to solve the following problem.
 
 If there are three pairs and exchange rates like this:
 
-* $r_{12}$: from currency USDT → BTC  
-* $r_{23}$: from currency BTC → ETH  
-* $r_{31}$: from currency ETH → USDT  
+* $R_{12}$: from currency USDT → BTC  
+* $R_{23}$: from currency BTC → ETH  
+* $R_{31}$: from currency ETH → USDT  
 
 We also take fees into account:
 
 $$
-r^{\text{eff}}_{ij} = r_{ij} \cdot (1 - f_{ij})
+R^{\text{effective}}_{ij} = R_{ij} \cdot (1 - fee_{ij})
 $$
 
 The condition for arbitrage is:
 
 $$
-r^{\text{eff}}_{12} \cdot r^{\text{eff}}_{23} \cdot r^{\text{eff}}_{31} > 1
+R^{\text{effective}}_{12} \cdot R^{\text{effective}}_{23} \cdot R^{\text{effective}}_{31} > 1
 $$
 
 Now applying negative logarithm to both side:
 
 $$
--(\log r^{\text{eff}}_{12} + \log r^{\text{eff}}_{23} + \log r^{\text{eff}}_{31}) < 0
+-(\log R^{\text{effective}}_{12} + \log R^{\text{effective}}_{23} + \log R^{\text{effective}}_{31}) < 0
 $$
 
-This condition corresponds to detecting negative cycles in the Bellman-Ford algorithm. In a Bellman-Ford graph with weights $w_{ij} = -\log(r_{ij})$, if the cycle $1 \to 2 \to 3 \to 1$ has a negative total weight, then there is an arbitrage opportunity.
+This condition corresponds to detecting negative cycles in the Bellman-Ford algorithm. In a Bellman-Ford graph with weights $w_{ij} = -\log(R_{ij})$, if the cycle $1 \to 2 \to 3 \to 1$ has a negative total weight, then there is an arbitrage opportunity.
 
 ## Limitations
 
