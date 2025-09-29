@@ -1,0 +1,17 @@
+[arbitrage]
+start_currencies = ["USDT"]
+
+[ranking]
+volume_threshold = 1_000_000
+top_pairs = 500
+ignore_zero = true
+
+[worker]
+concurrency = 8
+
+[limiter]
+weight_kline = 2
+weight_depth = 5
+
+[binance]
+trading_fee = 0.001
