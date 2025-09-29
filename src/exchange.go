@@ -11,7 +11,7 @@ type Exchange interface {
 	Ping() (http.Header, error)
 	RequestLimit() (int, http.Header, error)
 	FetchMarkets() (Pairs, http.Header, error)
-	FetchDepth(symbol, limit string) (*Depth, http.Header, error)
+	FetchDepth(symbol, limit string) (Depth, http.Header, error)
 	FetchKline(params map[string]string) ([]Kline, http.Header, error)
 	FetchPrice() ([]PriceItem, http.Header, error)
 }

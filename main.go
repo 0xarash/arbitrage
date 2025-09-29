@@ -77,7 +77,7 @@ func main() {
 	}
 
 	log.Info().Msg("Fetching Depth")
-	depths, err := market.GetDepths(rankedPairs, "1")
+	depths, err := market.Depths(rankedPairs, "1")
 	if err != nil {
 		log.Fatal().Msg(err.Error())
 	}

@@ -45,12 +45,12 @@ type Job struct {
 
 type PairDepth struct {
 	Pair  Pair
-	Depth *Depth
+	Depth Depth
 }
 
-type Depths []*PairDepth
+type Depths []PairDepth
 
-func (m Market) GetDepths(pairs Pairs, depthLimit string) (
+func (m Market) Depths(pairs Pairs, depthLimit string) (
 	Depths, error) {
 
 	curWeight, err := m.getCurrentWeight()
@@ -80,7 +80,7 @@ func (m Market) GetDepths(pairs Pairs, depthLimit string) (
 				return err
 			}
 
-			results[index] = &PairDepth{
+			results[index] = PairDepth{
 				Pair:  pair,
 				Depth: depth,
 			}

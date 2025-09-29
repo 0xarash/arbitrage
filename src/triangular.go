@@ -17,8 +17,8 @@ func (a TriangularArbitrage) Graph(depths Depths,
 
 	graph := NewGraph[Currency]()
 	for _, pair := range depths {
-		if pair == nil {
-			log.Warn().Msg("Nil Depth")
+		if pair.Pair.IsEMpty() {
+			log.Warn().Msg("Empty pair")
 			continue
 		}
 		graph.AddVertex(pair.Pair.Base)

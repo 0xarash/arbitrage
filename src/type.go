@@ -22,6 +22,10 @@ func (p Pair) Symbol() Symbol {
 	return Symbol(p.Base + p.Quote)
 }
 
+func (p Pair) IsEMpty() bool {
+	return p.Base == "" || p.Quote == ""
+}
+
 type Symbol string
 
 type Pairs map[Symbol]Pair

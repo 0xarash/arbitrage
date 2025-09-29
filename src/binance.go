@@ -105,21 +105,21 @@ func (l *Level) UnmarshalJSON(data []byte) error {
 }
 
 func (e Binance) FetchDepth(symbol, limit string) (
-	*Depth, http.Header, error) {
+	Depth, http.Header, error) {
 	body, hdr, err := e.request("https://api.binance.com/api/v3/depth",
 		map[string]string{"symbol": symbol, "limit": limit})
 	if err != nil {
-		return nil, nil, errors.New(fmt.Sprint("GetDepth Failed, ", err))
+		return Depth{}, nil, errors.New(fmt.Sprint("GetDepth Failed, ", err))
 	}
 
 	d := json.NewDecoder(body)
 
 	var depth Depth
 	if err := d.Decode(&depth); err != nil {
-		return nil, nil, errors.New(fmt.Sprint("GetDepth Failed, ", err))
+		return Depth{}, nil, errors.New(fmt.Sprint("GetDepth Failed, ", err))
 	}
 
-	return &depth, hdr, nil
+	return depth, hdr, nil
 }
 
 func (k *Kline) UnmarshalJSON(data []byte) error {
