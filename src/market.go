@@ -2,7 +2,6 @@ package arbitrage
 
 import (
 	"context"
-	"net/http"
 	"strconv"
 	"time"
 
@@ -33,14 +32,6 @@ func NewMarket(config Config, exchange Exchange) (Market, error) {
 func (m Market) Pairs() (Pairs, error) {
 	pairs, _, err := m.exchange.FetchMarkets()
 	return pairs, err
-}
-
-type Job struct {
-	Pair   Pair
-	Limit  string
-	Depth  *Depth
-	Header http.Header
-	Err    error
 }
 
 type PairDepth struct {
